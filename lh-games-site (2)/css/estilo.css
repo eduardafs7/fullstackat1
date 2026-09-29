@@ -1,0 +1,110 @@
+/* Tokens: paleta arcade */
+:root { --tinta:#1b1b3a; --ceu:#bfe3ff; --amarelo:#ffd23f; --vermelho:#ff4b3e; --azul:#2b59ff; --verde:#3ddc84; --branco:#fff; }
+* { box-sizing: border-box; }
+body { color: var(--tinta); font-family: 'Nunito', sans-serif; font-weight: 500;
+  background-color: var(--ceu);
+  background-image: linear-gradient(45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.35) 75%),
+                    linear-gradient(45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.35) 75%);
+  background-size: 32px 32px; background-position: 0 0, 16px 16px; }
+h1,h2,h3 { font-family: 'Press Start 2P', monospace; line-height: 1.5; }
+a { color: var(--azul); font-weight: 700; }
+:focus-visible { outline: 4px solid var(--azul); outline-offset: 2px; }
+
+/* Blocos com borda grossa e sombra dura */
+.bloco, .destaque, .produto, .novo, .login-caixa, .galeria a, .toast, .modal-content, .alert {
+  border: 4px solid var(--tinta); box-shadow: 6px 6px 0 var(--tinta); border-radius: 0; }
+
+/*cabeçalho*/
+header { background: var(--amarelo); border-bottom: 4px solid var(--tinta); position: sticky; top: 0; z-index: 1030; }
+header img { height: 70px; width: 70px; }
+.nav-link { color: var(--tinta) !important; font-weight: 800; }
+.nav-link:hover { text-decoration: underline; }
+.navbar-toggler { border: 3px solid var(--tinta); }
+.form-control { border: 3px solid var(--tinta); border-radius: 0; color: var(--tinta); }
+.carrinho { font-weight: 800; }
+.badge { background: var(--vermelho); border: 2px solid var(--tinta); border-radius: 0; }
+
+/* Botões chunky */
+.btn-jogar, .btn-azul { border: 3px solid var(--tinta); border-radius: 0; font-weight: 800; box-shadow: 4px 4px 0 var(--tinta); transition: transform .08s, box-shadow .08s; }
+.btn-jogar { background: var(--vermelho); color: #fff; }
+.btn-azul { background: var(--azul); color: #fff; }
+.btn-jogar:hover, .btn-azul:hover { color: #fff; filter: brightness(1.1); }
+.btn-jogar:active, .btn-azul:active { transform: translate(4px,4px); box-shadow: 0 0 0 var(--tinta); }
+
+/*banner*/
+#section-banners { padding: 0 !important; border-bottom: 4px solid var(--tinta); }
+#section-banners img { height: 520px; object-fit: cover; }
+.carousel-caption { background: var(--branco); color: var(--tinta); border: 4px solid var(--tinta); box-shadow: 6px 6px 0 var(--tinta);
+  text-align: left; left: 8%; right: auto; bottom: 12%; max-width: 480px; padding: 20px 24px; }
+.carousel-caption h1 { font-size: 1.3rem; }
+
+/*Conteudo principal*/
+main section { padding: 40px 0; }
+.titulo { display: inline-block; background: var(--tinta); color: var(--amarelo); font-size: 1.1rem; padding: 12px 18px; margin-bottom: 28px; }
+.preco { color: var(--vermelho); font-weight: 800; font-size: 1.2rem; }
+.preco-grande { font-size: 2rem; }
+
+/*Destaque*/
+.destaque { background: var(--amarelo); padding: 24px; }
+.destaque img { border: 4px solid var(--tinta); width: 100%; max-height: 340px; object-fit: cover; }
+.destaque h2 { font-size: 1.2rem; }
+
+/*Produtos vendidos*/
+.produto { background: var(--branco); height: 100%; overflow: hidden; }
+.produto img { height: 260px; width: 100%; object-fit: cover; border-bottom: 4px solid var(--tinta); }
+.produto .info { padding: 16px; }
+.produto h3 { font-size: .95rem; }
+.produto p { margin-bottom: 4px; }
+.produto .preco { display: block; margin-bottom: 12px; }
+
+/*Novidades*/
+.novo { display: flex; align-items: center; gap: 14px; background: var(--verde); padding: 12px; }
+.novo img { width: 84px; height: 84px; object-fit: cover; border: 3px solid var(--tinta); }
+.novo div { flex: 1; }
+.novo h3 { font-size: .8rem; margin: 0 0 6px; }
+.novo p { margin: 0; font-size: .9rem; }
+.novo .preco { color: var(--tinta); }
+
+/*Galeria*/
+.galeria { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 150px; gap: 16px; }
+.galeria a { overflow: hidden; background: var(--branco); }
+.galeria img { width: 100%; height: 100%; object-fit: cover; transition: transform .2s; }
+.galeria a:hover img { transform: scale(1.08); }
+.g-a { grid-row: span 2; } .g-b { grid-column: span 2; } .g-d { grid-row: span 2; } .g-e { grid-column: span 2; }
+
+/*Rodapé*/
+footer { background: var(--tinta); color: #fff; padding: 32px 0 8px; margin-top: 30px; border-top: 4px solid var(--vermelho); }
+footer strong { color: var(--amarelo); font-family: 'Press Start 2P', monospace; font-size: .75rem; }
+footer ul { list-style: none; padding: 0; margin-top: 10px; }
+footer a { color: #fff; }
+footer .assinatura { text-align: center; font-weight: bold; padding: 10px; color: var(--amarelo); }
+
+/*Botão Voltar topo*/
+#voltar-topo { position: fixed; bottom: 12px; right: 50px; display: none; z-index: 1040; }
+
+/* página de login  */
+.login-caixa { margin: 50px auto; max-width: 900px; background: var(--branco); overflow: hidden; }
+.login-lado { background: var(--amarelo); border-right: 4px solid var(--tinta); }
+.login-lado img { width: 100%; height: 220px; object-fit: cover; border-bottom: 4px solid var(--tinta); }
+.login-lado p { padding: 20px; font-weight: 700; }
+.login-form { padding: 32px; }
+.login-form label { display: block; margin: 12px 0 4px; font-weight: 800; }
+#section-login { padding: 0 !important; }
+#section-login h1, #form-cadastrar h1 { font-size: 1.3rem; }
+.alert { padding: 10px 14px; font-weight: 700; }
+
+/* Formulário de cadastro*/
+#section-cadastro { padding: 5px 0 !important; }
+#form-cadastrar { padding: 0; display: none; }
+
+/* Responsividade */
+@media (max-width: 991px) { .galeria { grid-template-columns: repeat(2, 1fr); } .g-b, .g-e { grid-column: span 2; } }
+@media (max-width: 767px) {
+  #section-banners img { height: 300px; }
+  .carousel-caption { left: 4%; right: 4%; bottom: 8%; max-width: none; padding: 10px 14px; }
+  .carousel-caption h1 { font-size: .85rem; } .carousel-caption p { display: none; }
+  #voltar-topo { right: 10px; }
+  .login-form { padding: 20px; }
+  .login-lado { border-right: 0; border-bottom: 4px solid var(--tinta); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

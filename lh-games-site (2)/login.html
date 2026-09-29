@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LH Games – Entrar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="LH Games"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html#section-vendidos">Promoções</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#section-novidades">Console</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#section-galeria">Jogos</a></li>
+          </ul>
+          <form class="d-flex me-lg-3 my-2 my-lg-0" role="search" onsubmit="return buscar(event)">
+            <input class="form-control me-2" id="busca" type="search" placeholder="O que deseja buscar?" aria-label="Buscar">
+            <button class="btn btn-azul" type="submit">Buscar</button>
+          </form>
+          <span class="carrinho me-lg-3" title="Carrinho">🛒 <span id="qtd-carrinho" class="badge">0</span></span>
+          <a class="btn btn-jogar active" href="login.html">Entrar</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="login-caixa row g-0">
+        <div class="col-md-5 login-lado"><img src="img/banner2.PNG" alt="Arte neon da LH Games"><p>Entre para acompanhar pedidos e salvar seus jogos favoritos.</p></div>
+        <div class="col-md-7 login-form">
+          <section id="section-login">
+            <h1>Entrar</h1>
+            <div id="msg-login" class="alert alert-danger d-none" role="alert"></div>
+            <form id="form-login" novalidate>
+              <label for="usuario">Nome</label>
+              <input id="usuario" type="text" class="form-control" placeholder="Insira o seu usuário" autocomplete="username">
+              <label for="senha">Senha</label>
+              <div class="input-group"><input id="senha" type="password" class="form-control" placeholder="Insira a sua senha" autocomplete="current-password">
+                <button type="button" class="btn btn-azul" id="ver-senha">Mostrar</button></div>
+              <button type="button" class="btn btn-jogar w-100 mt-3" id="bt-login" onclick="login()">Entrar</button>
+            </form>
+          </section>
+          <section id="section-cadastro">
+            <div id="botao-cadastrar"><button type="button" class="btn btn-azul">Não é cadastrado ainda? Cadastre-se</button></div>
+            <div id="form-cadastrar">
+              <h1>Criar minha conta</h1>
+              <p>Informe os seus dados abaixo para criar sua conta.</p>
+              <div id="msg-cadastro" class="alert alert-danger d-none" role="alert"></div>
+              <form id="form-cadastro" novalidate>
+                <label for="novo-usuario">Usuário</label><input id="novo-usuario" type="text" class="form-control" placeholder="ex. nome de usuário">
+                <label for="email">E-mail</label><input id="email" type="email" class="form-control" placeholder="seu@email.com.br">
+                <label for="nova-senha">Senha</label><input id="nova-senha" type="password" class="form-control" placeholder="mínimo de 6 caracteres">
+                <button type="button" class="btn btn-jogar w-100 mt-3" id="bt-cadastrar" onclick="cadastro()">Cadastrar</button>
+                <button type="button" class="btn btn-link mt-2" id="voltar-login">Já tenho conta</button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-md-4"><strong>LH Games</strong><p>Consoles, jogos e acessórios para quem joga de verdade.</p></div>
+        <div class="col-md-4"><strong>Loja</strong><ul><li><a href="index.html#section-vendidos">Promoções</a></li><li><a href="index.html#section-novidades">Console</a></li><li><a href="index.html#section-galeria">Jogos</a></li></ul></div>
+        <div class="col-md-4"><strong>Conta</strong><ul><li><a href="login.html">Entrar</a></li><li><a href="login.html">Criar conta</a></li></ul></div>
+      </div>
+      <p class="assinatura">Desenvolvimento por LH Games</p>
+    </div>
+  </footer>
+
+  <button id="voltar-topo" type="button" class="btn btn-azul" onclick="topo()" aria-label="Voltar ao topo">&uarr; Voltar ao topo</button>
+
+  <div class="toast-container position-fixed top-0 end-0 p-3"><div id="aviso" class="toast" role="status"><div class="toast-body" id="aviso-texto"></div></div></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  <script src="js/jquery-script.js"></script>
+</body>
+</html>
